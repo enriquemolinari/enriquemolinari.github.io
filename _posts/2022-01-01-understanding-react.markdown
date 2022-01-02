@@ -5,7 +5,18 @@ date:   2021-12-25 21:12:13 -0300
 categories: react
 ---
 
-This is my second book, [Understanding React](https://leanpub.com/understandingreact).
+<style type="text/css">
+ .center-image
+ {
+   margin: 0 auto;
+   display: block;
+ }
+ img { width: 200px; }
+</style>
+
+Here is my second book. You can buy it follow the link: [Understanding React](https://leanpub.com/understandingreact). If you are one of my students, it is free for you, just write me an email. 
+
+![Book Cover](/assets/understanding-react-cover.png "Understanding React Book Cover"){: .center-image }
 
 >Learn how to code applications in React by following a solid path that starts by studying essential JavaScript constructions to then go into React core concepts to finally write an application. Understand how to split an application into components (class or function-based ones), how to use props, state, events, hooks, react router, and more.
 

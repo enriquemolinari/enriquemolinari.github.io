@@ -5,7 +5,18 @@ date:   2020-06-12 21:12:13 -0300
 categories: architecture
 ---
 
-I have just released my first book [Coding an Architecture Style](https://leanpub.com/codinganarchitecturestyle) on Software Architecture.
+<style type="text/css">
+ .center-image
+ {
+   margin: 0 auto;
+   display: block;
+ }
+ img { width: 200px; }
+</style>
+
+I have just released my first book. You can buy it follow the link:  [Coding an Architecture Style](https://leanpub.com/codinganarchitecturestyle). If you are one of my students, it is free for you, just write me an email. 
+
+![Book Cover](/assets/coding-arch-cover.png "Coding an Architecture Style Book Cover"){: .center-image }
 
 >If you want to know how to design and code an application with Modular Architecture, or with Layered Architecture or with Hexagonal Architecture (Clean Architecture), or with Microservice Architecture this book is for you. If you are a developer who is always trying to write clean, solid and elegant software structures, this book is for you.
 
