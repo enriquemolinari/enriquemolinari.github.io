@@ -1,0 +1,28 @@
+I"@<style type="text/css">
+ .center-image
+ {
+   margin: 0 auto;
+   display: block;
+ }
+ img { width: 200px; }
+</style>
+
+<p>I have just released my first book. You can buy it follow the link:  <a href="https://leanpub.com/codinganarchitecturestyle">Coding an Architecture Style</a>. If you are one of my students, it is free for you, just write me an email.</p>
+
+<p><img src="/assets/coding-arch-cover.png" alt="Book Cover" class="center-image" /></p>
+
+<blockquote>
+  <p>If you want to know how to design and code an application with Modular Architecture, or with Layered Architecture or with Hexagonal Architecture (Clean Architecture), or with Microservice Architecture this book is for you. If you are a developer who is always trying to write clean, solid and elegant software structures, this book is for you.</p>
+</blockquote>
+
+<p>If you have had the bad experience of having to maintain a complex “big ball of mud” enterprise application, with pressure from the business to go to production with new features under an aggressive schedule, you, better than anyone, know how important is to have a solid architecture with clear defined rules where we can make modifications, having an understanding where every change will impact.</p>
+
+<p>However, it is not enough to understand how to create solid architectures by looking at beautiful architectural diagrams. Or by reading long explanations about the benefits of Microservices or Modularity. Understanding how to create solid structures requires opening an IDE and starting coding. We have to learn what syntactical constructions, other than classes, functions and procedures, our favourite programming language offers to create large-scale applications and just there we will be able to craft different software structures and start recognizing their benefits and drawbacks.</p>
+
+<p>Throughout this book we will iterate an application in order to show how to code different architecture styles. In each iteration we study and implement an architecture style, going through layered architecture, hexagonal (or ports and adapters), modular and microservices. All this is supported by solid architecture concepts, simple designs and good practices. We use Java 11 to implement all the mentioned styles. In particular, to implement the modular architecture style we use the module system incorporated in Java since version 9. We also show different options to verify the architecture rules imposed by each style. All sources are available for the reader.</p>
+
+<p>Although the implementation is done in the Java language, it is possible to apply the same concepts in languages such as PHP, Ruby, Python or .NET.</p>
+
+<p>We will also review the different architectural views, we discuss properties of monolith vs distributed architectures to finish with a pragmatic study of availability and scalability quality attributes.</p>
+
+:ET

@@ -1,0 +1,19 @@
+I"Ê<style type="text/css">
+ .center-image
+ {
+   margin: 0 auto;
+   display: block;
+ }
+ img { width: 200px; }
+</style>
+
+<p>Here is my second book. You can buy it follow the link: <a href="https://leanpub.com/understandingreact">Understanding React</a>. If you are one of my students, it is free for you, just write me an email.</p>
+
+<p><img src="/assets/understanding-react-cover.png" alt="Book Cover" class="center-image" /></p>
+
+<blockquote>
+  <p>Learn how to code applications in React by following a solid path that starts by studying essential JavaScript constructions to then go into React core concepts to finally write an application. Understand how to split an application into components (class or function-based ones), how to use props, state, events, hooks, react router, and more.</p>
+</blockquote>
+
+<p>Every successful framework or library provides something unique which gives developers a new tool for writing better software. In the case of React, that tool is called component. You might be thinking that you have been reading about components as the solution to your spaghetti software nightmare for the last 15 years without any success. You are not wrong. However, React is an exception. It provides the constructions and tools to build highly cohesive components to assemble your next application. In this book, we will study React core concepts, to end up being very practical describing how to split an application into components and to fully implement it.</p>
+:ET

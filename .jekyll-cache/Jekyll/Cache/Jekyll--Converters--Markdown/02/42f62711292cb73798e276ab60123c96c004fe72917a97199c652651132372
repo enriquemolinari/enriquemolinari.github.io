@@ -1,0 +1,13 @@
+I"�	<p>If you are an Architect you may have discovered that you are not going to be asked to spend all your time on improving the design of an existing software product, nor to write code for an specific project.</p>
+
+<p>As soon as you become an Architect, your meeting’s calendar will grow considerably. You will be asked to do the planning for several projects, to come up with estimates, and a very high level description of the software components that will need to be taken into account to accomplish the project. In addition, if you work for a big multinational company, you will be asked to analyse the software technologies of other companies that your company has the intention to acquire.
+Then, you will present your work to the business using a slide based or a word based tool. This is fine. You have to have very good communication skills.</p>
+
+<p>But, you cannot forget that an entire team of developers and technical leads are waiting for your guidance too. You cannot leave them behind, you must find the time to write code, to design, to configure a development environment, to write test cases, to explain why an algorithm is better than other, to help developers to fix bugs, to help developers to write maintainable code, to help developers to write unit testable code, to help developers to come up with good designs, to help developers to identify and propose solutions for performance bottlenecks, etc. As an Architect, you must be able to replace a developer if for any reason that is required. In order to be able to do this and in order to lead (by example) a development team, you cannot be entirely divorced from development activities.</p>
+
+<p>Try to find the balance between business related activities vs development activities. If you find hard to have time for development activities, block your calendar once a week (half day) to sit down and write code. This does not mean that you want to ignore an important part of your role, this means that you want to be prepared one day to do development for an underestimated project to deliver it in time.</p>
+
+<p>Stay with your development team, don’t isolate yourself in an office. Make feel them that you are there if they need any help or suggestion. Listen what they say while doing development. Write code yourself and commit code into the repository once in a while.</p>
+
+<p>Oh yes… you will have more work to do with the same amount of hours you had before.</p>
+:ET
