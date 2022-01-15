@@ -9,13 +9,13 @@
 
   
 
-  <title>Copy &amp; Paste is for Word</title>
+  <title>Tag Index</title>
 
   
   <meta name="author" content="Enrique Molinari">
   
 
-  <meta name="description" content="">
+  <meta name="description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag...">
 
   
 
@@ -89,8 +89,8 @@
 
   
   <meta property="og:site_name" content="Copy & Paste is for Word">
-  <meta property="og:title" content="Copy &amp; Paste is for Word">
-  <meta property="og:description" content="">
+  <meta property="og:title" content="Tag Index">
+  <meta property="og:description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag...">
 
   
   <meta property="og:image" content="/assets/img/mi-foto.jpeg">
@@ -98,8 +98,8 @@
 
   
   <meta property="og:type" content="website">
-  <meta property="og:url" content="/">
-  <link rel="canonical" href="/">
+  <meta property="og:url" content="/tags/">
+  <link rel="canonical" href="/tags/">
   
 
   
@@ -108,8 +108,8 @@
   <meta name="twitter:site" content="@daattali">
   <meta name="twitter:creator" content="@daattali">
 
-  <meta property="twitter:title" content="Copy &amp; Paste is for Word">
-  <meta property="twitter:description" content="">
+  <meta property="twitter:title" content="Tag Index">
+  <meta property="twitter:description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag...">
 
   
   <meta name="twitter:image" content="/assets/img/mi-foto.jpeg">
@@ -250,7 +250,28 @@
 
 
 
-<div class="intro-header"></div>
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="page-heading">
+          <h1>Tag Index</h1>
+          
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
 
 
 
@@ -259,163 +280,43 @@
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
       
 
-      
-
-
-
-
-<div class="posts-list">
-  
-  <article class="post-preview">
-    
-
-    
-
-    <a href="/2021-12-25-understanding-react/">
-      <h2 class="post-title">Understanding React</h2>
-
-      
-    </a>
-
-    <p class="post-meta">
-      
-      Posted on December 25, 2021
-    </p>
-
-    
-    <div class="post-image post-image-small">
-      <a href="/2021-12-25-understanding-react/" aria-label="Thumbnail">
-        <img src="/assets/img/understanding-react-cover.png" alt="Post thumbnail">
-      </a>
-    </div>
-    
-
-    
-    
-    <div class="post-image post-image-short">
-      <a href="/2021-12-25-understanding-react/" aria-label="Thumbnail">
-        <img src="/assets/img/understanding-react-cover.png" alt="Post thumbnail">
-      </a>
-    </div>
-    
-
-    <div class="post-entry">
-      
-      Here is my second book. You can buy it follow the link: Understanding React. If you are one of my students, it is free for you, just write me an email. Learn how to code applications in React by following a solid path that starts by studying essential JavaScript constructions...
-      
-      
-        <a href="/2021-12-25-understanding-react/" class="post-read-more">[Read&nbsp;More]</a>
-      
-    </div>
-    
-
-    
-    <div class="blog-tags">
-      <span>Tags:</span>
-      
-      <a href="/tags#React">React</a>
-      
-      <a href="/tags#SPA">SPA</a>
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    
-
-    
-
-    <a href="/2020-06-12-coding-architecture/">
-      <h2 class="post-title">Coding an Architecture Style</h2>
-
-      
-    </a>
-
-    <p class="post-meta">
-      
-      Posted on June 12, 2020
-    </p>
-
-    
-    <div class="post-image post-image-small">
-      <a href="/2020-06-12-coding-architecture/" aria-label="Thumbnail">
-        <img src="/assets/img/coding-cover.png" alt="Post thumbnail">
-      </a>
-    </div>
-    
-
-    
-    
-    <div class="post-image post-image-short">
-      <a href="/2020-06-12-coding-architecture/" aria-label="Thumbnail">
-        <img src="/assets/img/coding-cover.png" alt="Post thumbnail">
-      </a>
-    </div>
-    
-
-    <div class="post-entry">
-      
-      I have just released my first book. You can buy it follow the link: Coding an Architecture Style. If you are one of my students, it is free for you, just write me an email. If you want to know how to design and code an application with Modular Architecture,...
-      
-      
-        <a href="/2020-06-12-coding-architecture/" class="post-read-more">[Read&nbsp;More]</a>
-      
-    </div>
-    
-
-    
-    <div class="blog-tags">
-      <span>Tags:</span>
-      
-      <a href="/tags#Software Architecture">Software Architecture</a>
-      
-      <a href="/tags#Design">Design</a>
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    
-
-    
-
-    <a href="/2011-05-22-architect-role/">
-      <h2 class="post-title">What is the role of a Software Architect ?</h2>
-
-      
-    </a>
-
-    <p class="post-meta">
-      
-      Posted on May 22, 2011
-    </p>
-
-    
-
-    
-    
-
-    <div class="post-entry">
-      
-      If you are an Architect you may have discovered that you are not going to be asked to spend all your time on improving the design of an existing software product, nor to write code for an specific project. As soon as you become an Architect, your meeting’s calendar will...
-      
-      
-        <a href="/2011-05-22-architect-role/" class="post-read-more">[Read&nbsp;More]</a>
-      
-    </div>
-    
-
-    
-
-   </article>
-  
-</div>
-
-
+      <a href="#Design" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;Design&nbsp;(1)</a><a href="#React" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;React&nbsp;(1)</a><a href="#SPA" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;SPA&nbsp;(1)</a><a href="#Software Architecture" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;Software Architecture&nbsp;(1)</a><div id="full-tags-list"><h2 id="Design" class="linked-section">
+        <i class="fas fa-tag" aria-hidden="true"></i>
+        &nbsp;Design&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="/2020-06-12-coding-architecture/">Coding an Architecture Style</a>
+                <div class="entry-date">
+                    <time datetime="2020-06-12T20:12:13-04:00">June 12, 2020</time>
+                </div>
+            </div></div><h2 id="React" class="linked-section">
+        <i class="fas fa-tag" aria-hidden="true"></i>
+        &nbsp;React&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="/2021-12-25-understanding-react/">Understanding React</a>
+                <div class="entry-date">
+                    <time datetime="2021-12-25T19:12:13-05:00">December 25, 2021</time>
+                </div>
+            </div></div><h2 id="SPA" class="linked-section">
+        <i class="fas fa-tag" aria-hidden="true"></i>
+        &nbsp;SPA&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="/2021-12-25-understanding-react/">Understanding React</a>
+                <div class="entry-date">
+                    <time datetime="2021-12-25T19:12:13-05:00">December 25, 2021</time>
+                </div>
+            </div></div><h2 id="Software Architecture" class="linked-section">
+        <i class="fas fa-tag" aria-hidden="true"></i>
+        &nbsp;Software Architecture&nbsp;(1)
+    </h2>
+    <div class="post-list"><div class="tag-entry">
+                <a href="/2020-06-12-coding-architecture/">Coding an Architecture Style</a>
+                <div class="entry-date">
+                    <time datetime="2020-06-12T20:12:13-04:00">June 12, 2020</time>
+                </div>
+            </div></div></div>
 
 
       
