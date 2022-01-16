@@ -15,7 +15,7 @@
         <title>Understanding React</title>
         <description>
           
-          Here is my second book. You can buy it follow the link: Understanding React. If you are one of my students, it is free for you, just write me an email. Learn how to code applications in React by following a solid path that starts by studying essential JavaScript constructions...
+          Here is my second book. Learn how to code applications in React by following a solid path that starts by studying essential JavaScript constructions to then go into React core concepts to finally write an application. Understand how to split an application into components (class or function-based ones), how to...
         </description>
         <pubDate>Sat, 25 Dec 2021 19:12:13 -0500</pubDate>
         <link>/2021-12-25-understanding-react/</link>
@@ -26,7 +26,7 @@
         <title>Coding an Architecture Style</title>
         <description>
           
-          I have just released my first book. You can buy it follow the link: Coding an Architecture Style. If you are one of my students, it is free for you, just write me an email. If you want to know how to design and code an application with Modular Architecture,...
+          I have just released my first book about hands-on Software Architecture. If you want to know how to design and code an application with Modular Architecture, or with Layered Architecture or with Hexagonal Architecture (Clean Architecture), or with Microservice Architecture this book is for you. If you are a developer...
         </description>
         <pubDate>Fri, 12 Jun 2020 20:12:13 -0400</pubDate>
         <link>/2020-06-12-coding-architecture/</link>

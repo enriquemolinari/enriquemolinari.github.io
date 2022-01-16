@@ -1087,3 +1087,25 @@ pre {
     display: inline-block;
   }
 }
+
+/* --- Links --- */
+
+.blog-links {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9375rem;
+  margin: 0.5rem 0;
+}
+
+.blog-links span {
+  color: #404040;
+  opacity: 0.8;
+}
+
+.blog-links a {
+  color: #008AFF;
+  text-decoration: none;
+  padding: 0 0.3125rem;
+  opacity: 0.8;
+/*  border: 1px solid transparent;
+  border-radius: 0.1875rem;*/
+}
