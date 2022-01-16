@@ -34,6 +34,28 @@
       </item>
     
       <item>
+        <title>Software Architecture vs Software Design</title>
+        <description>
+          
+          I cannot find in the literature a precise distinction between Software Architecture and Software Design. Of course, I did not read all the books about software Architecture available in the market, but I read two great books, which I recommend (mentioned on footnotes below), but neither of them, IMHO, are...
+        </description>
+        <pubDate>Wed, 13 Jul 2011 20:12:13 -0400</pubDate>
+        <link>/2011-07-13-arch-vs-design/</link>
+        <guid isPermaLink="true">/2011-07-13-arch-vs-design/</guid>
+      </item>
+    
+      <item>
+        <title>A Note on the Definition of Legacy Code</title>
+        <description>
+          
+          Many developers think that Legacy Code is an old code base that they inherit. A working application that other developer or other team wrote and you inherit it to maintain or enhance or to migrate to a newer platform. This is not entirely true, according to the definition of Michael...
+        </description>
+        <pubDate>Mon, 20 Jun 2011 20:12:13 -0400</pubDate>
+        <link>/2011-06-20-legacy-code/</link>
+        <guid isPermaLink="true">/2011-06-20-legacy-code/</guid>
+      </item>
+    
+      <item>
         <title>What is the role of a Software Architect ?</title>
         <description>
           
