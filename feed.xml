@@ -45,6 +45,17 @@
       </item>
     
       <item>
+        <title>Object Oriented Frameworks: Concepts, White Box and Black Box Examples</title>
+        <description>
+          
+          When teaching Object Oriented Frameworks (usually in Advanced Object Oriented Programming courses) there is a challenge for students to understand their nature, differences with libraries and the difference between white box frameworks vs black box frameworks. In this post I will start talking very briefly about general concepts of frameworks....
+        </description>
+        <pubDate>Sat, 11 Jun 2016 14:00:00 -0400</pubDate>
+        <link>/2016-06-11-frameworks/</link>
+        <guid isPermaLink="true">/2016-06-11-frameworks/</guid>
+      </item>
+    
+      <item>
         <title>Software Architecture vs Software Design</title>
         <description>
           

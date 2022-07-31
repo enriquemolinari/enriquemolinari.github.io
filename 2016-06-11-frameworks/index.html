@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Object Oriented Frameworks: Concepts, White Box and Black Box Examples</title>
+
+  
+  <meta name="author" content="Enrique Molinari">
+  
+
+  <meta name="description" content="When teaching Object Oriented Frameworks (usually in Advanced Object Oriented Programming courses) there is a challenge for students to understand their nature, differences with libraries and the difference between white box frameworks vs black box frameworks. In this post I will start talking very briefly about general concepts of frameworks....">
+
+  
+
+  
+
+  
+  <link rel="alternate" type="application/rss+xml" title="Copy & Paste is for Word" href="/feed.xml">
+  
+
+  
+
+  
+
+  
+<!-- Google Analytics -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-23512716-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Copy & Paste is for Word">
+  <meta property="og:title" content="Object Oriented Frameworks: Concepts, White Box and Black Box Examples">
+  <meta property="og:description" content="When teaching Object Oriented Frameworks (usually in Advanced Object Oriented Programming courses) there is a challenge for students to understand their nature, differences with libraries and the difference between white box frameworks vs black box frameworks. In this post I will start talking very briefly about general concepts of frameworks....">
+
+  
+  <meta property="og:image" content="/assets/img/mi-foto.jpeg">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Enrique Molinari">
+  <meta property="og:article:published_time" content="2016-06-11T14:00:00-04:00">
+  <meta property="og:url" content="/2016-06-11-frameworks/">
+  <link rel="canonical" href="/2016-06-11-frameworks/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:creator" content="@">
+
+  <meta property="twitter:title" content="Object Oriented Frameworks: Concepts, White Box and Black Box Examples">
+  <meta property="twitter:description" content="When teaching Object Oriented Frameworks (usually in Advanced Object Oriented Programming courses) there is a challenge for students to understand their nature, differences with libraries and the difference between white box frameworks vs black box frameworks. In this post I will start talking very briefly about general concepts of frameworks....">
+
+  
+  <meta name="twitter:image" content="/assets/img/mi-foto.jpeg">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="">Copy & Paste is for Word</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutme">About Me</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Search</span>
+          </a>
+        </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/mi-foto.jpeg" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var searchjson = '[ \
+       \
+        { \
+          "title"    : "Implementing Progressive Web Apps with React", \
+          "category" : "ReactProgressive Web Apps", \
+          "url"      : "/2022-06-20-pwa-react/", \
+          "date"     : "June 20, 2022" \
+        }, \
+       \
+        { \
+          "title"    : "Understanding React", \
+          "category" : "ReactSPA", \
+          "url"      : "/2021-12-25-understanding-react/", \
+          "date"     : "December 25, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Coding an Architecture Style", \
+          "category" : "Software ArchitectureDesign", \
+          "url"      : "/2020-06-12-coding-architecture/", \
+          "date"     : "June 12, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Object Oriented Frameworks: Concepts, White Box and Black Box Examples", \
+          "category" : "Object OrientedFramework", \
+          "url"      : "/2016-06-11-frameworks/", \
+          "date"     : "June 11, 2016" \
+        }, \
+       \
+        { \
+          "title"    : "Software Architecture vs Software Design", \
+          "category" : "", \
+          "url"      : "/2011-07-13-arch-vs-design/", \
+          "date"     : "July 13, 2011" \
+        }, \
+       \
+        { \
+          "title"    : "A Note on the Definition of Legacy Code", \
+          "category" : "", \
+          "url"      : "/2011-06-20-legacy-code/", \
+          "date"     : "June 20, 2011" \
+        }, \
+       \
+        { \
+          "title"    : "What is the role of a Software Architect ?", \
+          "category" : "", \
+          "url"      : "/2011-05-22-architect-role/", \
+          "date"     : "May 22, 2011" \
+        }, \
+       \
+       \
+        { \
+          "title"    : "What is this About?", \
+          "category" : "page", \
+          "url"      : "/about/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "What is this About?", \
+          "category" : "page", \
+          "url"      : "/aboutme/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "My website", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Tag Index", \
+          "category" : "page", \
+          "url"      : "/tags/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "My website", \
+          "category" : "page", \
+          "url"      : "/page2/", \
+          "date"     : "January 1, 1970" \
+        } \
+       \
+    ]';
+    searchjson = JSON.parse(searchjson);
+
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: searchjson
+    });
+  </script>
+</div>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Object Oriented Frameworks: Concepts, White Box and Black Box Examples</h1>
+          
+
+          
+            <span class="post-meta">Posted on June 11, 2016</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <p>When teaching Object Oriented Frameworks (usually in Advanced Object Oriented Programming courses) there is a challenge for students to understand their nature, differences with libraries and the difference between <strong>white box</strong> frameworks vs <strong>black box</strong> frameworks.</p>
+
+<p>In this post I will start talking very briefly about general concepts of frameworks. Then I will implement a pretty simple <strong>white box framework</strong> as an example and after that I will transform the white box framework into a black box framework.</p>
+
+<h2 id="frameworks-definition">Frameworks Definition</h2>
+
+<p>The key driver that made to evolve software development into the creation and use of Frameworks was, is and will be <strong>code reuse</strong>.</p>
+
+<p>Before frameworks appeared, the only software constructions used to obtain code reuse were library of functions, for procedural / imperative programming languages and library of classes for object oriented languages (other ways you can find out there are modules in Modula, packages in Ada and/or clusters in CLU). Libraries in general allows you to reuse only source code and for an specific task.</p>
+
+<p>Frameworks came into the world of software development to provide design and source code reuse. Frameworks provides a greater level of reuse. They define a design and the implementation of an specific class of software application allowing the users, which are developers, to use it as it is (with some configuration like connection strings and i18n for instance), or extend it to adapt it to their specific needs.</p>
+
+<p>To give a definition of what a framework is, I will take the one from the GOF book: “A framework is a set of cooperating classes that make up a reusable design for a specific class of software”. A framework define the design of our application, the key classes, responsibilities and collaborations. It will also determine the control flow of our application, where the execution always start in the framework’s code.</p>
+
+<h3 id="how-frameworks-are-different-from-libraries">How Frameworks are different from Libraries?</h3>
+
+<p>When you use a software library, the execution start in the application’s code and is the application who call the library to use it. With frameworks, the execution start in the framework’s code, and is the framework who call application methods. This is called <strong>Inversion of Control</strong> and is one of the key concepts for frameworks and a key distinction between frameworks and libraries.</p>
+
+<h3 id="how-to-provide-extension-points-and-how-they-are-achieved">How to provide extension points and how they are achieved?</h3>
+
+<p>There are no new or magic mechanisms in how the frameworks provides <strong>extension points</strong>, also called <strong>hook methods</strong>. They are available thanks to the <strong>dynamic binding</strong> concept, well known from the very beginnings of Object Oriented Programming. Frameworks are able to make calls to object methods which can be replaced or interchanged at runtime with developer’s code (users of the framework) thanks to the dynamic binding mechanism.</p>
+
+<p>Within the flow of collaborations implemented in a framework, there will exists <em>documented</em> extension points or hook methods that users can take advantage of to <em>inject</em> their own behaviour. This is the way of how you can extend a framework.</p>
+
+<h3 id="why-white-box-or-black-box-frameworks">Why White Box or Black box Frameworks?</h3>
+
+<p>The way in which the framework provides the <em>extensibility</em> make the framework be of type <strong>white box</strong> or <strong>black box</strong>. A framework that provides extensibility by using inheritance are white box. Which means that if you need to customize a framework and to do that you have to inherit from a framework’s class and override a method then that is white box.</p>
+
+<p>A framework that provides extensibility by composing and injecting objects to combine different collaborations are black box. Which means that if you need to customize a framework and to do that you have to implement an specific <em>interface</em> and somehow the framework will pick your class and call it at the extension points that was documented, then that is a black box.</p>
+
+<h2 id="white-box-framework-example">White Box Framework Example</h2>
+
+<p>Lets imagine that in the Java programming language, printing a message in a dialog box is very hard. So, in order to make a software that need to do that you need to use a framework to make your life easier. Here we will develop the framework using white box design and then we will demonstrate how a developer can use our framework.</p>
+
+<p>Below you will see our <strong>PrintOnScreen</strong> framework, including some comments to explain how is used.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ar.cpfw.whitebox</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="o">;</span>
+
+<span class="cm">/* This framework allows you to show text on a dialog box.
+ *
+ * To use it, you have to extends from the PrintOnScreen class
+ * and implement their abstract method.
+ *
+ * The framework provides the PrintOnScreen#print method which
+ * makes the magic.
+ * */</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">PrintOnScreen</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+		<span class="nc">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="n">frame</span><span class="o">,</span> <span class="n">textToShow</span><span class="o">());</span>
+		<span class="n">frame</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="kd">protected</span> <span class="kd">abstract</span> <span class="nc">String</span> <span class="nf">textToShow</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now, lets extends the framework:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ar.cpfw.utilization</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">ar.cpfw.whitebox.PrintOnScreen</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="kd">extends</span> <span class="nc">PrintOnScreen</span> <span class="o">{</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="nc">String</span> <span class="nf">textToShow</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="s">"printing this text on"</span>
+			<span class="o">+</span> <span class="s">"screen using PrintOnScreen"</span>
+			<span class="o">+</span> <span class="s">"white Box Framework"</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>And finally, instantiate it, and run it:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ar.cpfw.utilization</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+		<span class="nc">MyApplication</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyApplication</span><span class="o">();</span>
+		<span class="n">m</span><span class="o">.</span><span class="na">print</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Some conceptual points to highlight about the <strong>PrintOnScreen</strong> framework and their usage:</p>
+
+<ul>
+  <li>Note that the framework itself is in a different package that the use of the framework. That is what will normally happen in real life if you use a framework developed by other developer. Even if you develop the framework and use it, it is a good practice to separate the classes in packages (modules).</li>
+  <li>The <strong>extension point</strong> (hook) is an abstract method. To use and extend the framework I have to <strong>inherit</strong> from the framework class. That is a key characteristic of a <strong>white box framework</strong>.</li>
+  <li>It use <strong>inversion of control</strong>, the framework method PrintOnScrenn#print calls our method MyApplication#textToShow.</li>
+  <li>The framework use the <em>Template Method</em> pattern, which is mainly the pattern used to create white box frameworks.</li>
+  <li>Finally, note that as a developer I would be able to override the PrintOnScreen#print method as is <em>public</em>. That method was not developed for that intention, that is why framework documentation is important for clarifying these things. However, as a developer I might make this mistake. This is a clear drawback of frameworks based on inheritance. Java (but not all Object Oriented languages) provides the <em>final</em> keyword to help framework developers to flag which methods cannot be overridden. If we put the final keyword to the PrintOnScreen#print method, that would be best.</li>
+</ul>
+
+<h2 id="black-box-framework-example">Black Box Framework Example</h2>
+
+<p>Here we are going to transform our white box framework into a black box one. Find below the framework’s classes:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ar.cpfw.blackbox</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="o">;</span>
+
+<span class="cm">/* This framework allows you to show text on a dialog box.
+ *
+ * To use it, you have to implement the interface TextToShow.
+ * Then, create an instance of the class PrintOnScreen passing
+ * your implementation of TextToShow as a constructor param.
+ *
+ * The framework provides the PrintOnScreen#print method which
+ * makes the magic.
+ * */</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">PrintOnScreen</span> <span class="o">{</span>
+
+	<span class="nc">TextToShow</span> <span class="n">textToShow</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">PrintOnScreen</span><span class="o">(</span><span class="nc">TextToShow</span> <span class="n">text</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">textToShow</span> <span class="o">=</span> <span class="n">text</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JFrame</span><span class="o">();</span>
+		<span class="nc">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="n">frame</span><span class="o">,</span> <span class="n">textToShow</span><span class="o">.</span><span class="na">text</span><span class="o">());</span>
+		<span class="n">frame</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ar.cpfw.blackbox</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TextToShow</span> <span class="o">{</span>
+	<span class="nc">String</span> <span class="nf">text</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Some points to highlight about the changes made:</p>
+
+<ul>
+  <li>We made the <strong>PrintOnScreen</strong> class <em>final</em> (we don’t want our users to inherit from it).</li>
+  <li>Then, we created an <em>interface</em> called <strong>TextToShow</strong>, which is the <strong>extension point</strong>. And <em>compose</em> it as a private member of the <strong>PrintOnScreen</strong> class.</li>
+  <li>After that, we changed the <strong>PrintOnScreen#print</strong> method to <em>delegate</em> on the <strong>TextToShow#text</strong> method.</li>
+  <li>And finally, we created a constructor method on the <strong>PrintOnScreen</strong> class that accept a <strong>TextToShow</strong> instance as a parameter. This is the way our users will <em>inject</em> their instance.</li>
+</ul>
+
+<p>In the black box example, words like <strong>compose</strong> and <strong>delegate</strong> are now the important ones over <strong>inheritance</strong> from the white box example.</p>
+
+<p>We have only left to show how to use our black box framework, let follow their instructions. First we implement the <strong>TextToShow</strong> interface:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ar.cpfw.utilization</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">ar.cpfw.blackbox.TextToShow</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyTextToShow</span> <span class="kd">implements</span> <span class="nc">TextToShow</span> <span class="o">{</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">text</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="s">"printing this text on"</span>
+			<span class="o">+</span> <span class="s">"screen using PrintOnScreen"</span>
+			<span class="o">+</span> <span class="s">"black Box Framework"</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>And finally,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">ar.cpfw.utilization</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">ar.cpfw.blackbox.PrintOnScreen</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+		<span class="nc">PrintOnScreen</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrintOnScreen</span><span class="o">(</span><span class="k">new</span> <span class="nc">MyTextToShow</span><span class="o">());</span>
+		<span class="n">m</span><span class="o">.</span><span class="na">print</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>That completed our migration from white box to black box and hopefully illustrate the differences.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#Object Oriented">Object Oriented</a>
+          
+            <a href="/tags#Framework">Framework</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Object+Oriented+Frameworks%3A+Concepts%2C+White+Box+and+Black+Box+Examples&url=%2F2016-06-11-frameworks%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2F2016-06-11-frameworks%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2F2016-06-11-frameworks%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2011-07-13-arch-vs-design/" data-toggle="tooltip" data-placement="top" title="Software Architecture vs Software Design">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="page-item next">
+          <a class="page-link" href="/2020-06-12-coding-architecture/" data-toggle="tooltip" data-placement="top" title="Coding an Architecture Style">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+  
+  
+  
+
+  
+
+
+  
+
+
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="mailto:enrique.molinari@gmail.com" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/enriquemolinari" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://linkedin.com/in/enrique-molinari-254a3764" title="LinkedIn">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">LinkedIn</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://stackoverflow.com/users/842533/enrique-molinari" title="StackOverflow">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">StackOverflow</span>
+   </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Enrique Molinari
+        &nbsp;&bull;&nbsp;
+      
+      2022
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="">copypasteisforword.com</a>
+        </span>
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
