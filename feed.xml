@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>Implementing Progressive Web Apps with React</title>
+        <description>
+          
+          Here is my third book. Did you know that with PWAs you can create Web Apps that deliver a user experience similar to native apps? Did you know that with the React tooling most of the work to create them is almost done? I will explain how to create PWAs...
+        </description>
+        <pubDate>Mon, 20 Jun 2022 19:00:00 -0400</pubDate>
+        <link>/2022-06-20-pwa-react/</link>
+        <guid isPermaLink="true">/2022-06-20-pwa-react/</guid>
+      </item>
+    
+      <item>
         <title>Understanding React</title>
         <description>
           

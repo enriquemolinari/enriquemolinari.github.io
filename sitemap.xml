@@ -21,6 +21,10 @@
 <lastmod>2021-12-25T19:12:13-05:00</lastmod>
 </url>
 <url>
+<loc>/2022-06-20-pwa-react/</loc>
+<lastmod>2022-06-20T19:00:00-04:00</lastmod>
+</url>
+<url>
 <loc>/about/</loc>
 </url>
 <url>
@@ -34,6 +38,9 @@
 </url>
 <url>
 <loc>/tags/</loc>
+</url>
+<url>
+<loc>/page2/</loc>
 </url>
 <url>
 <loc>/about/</loc>
@@ -54,6 +61,10 @@
 <url>
 <loc>/assets/img/codingarch-sample.pdf</loc>
 <lastmod>2022-01-16T07:10:41-05:00</lastmod>
+</url>
+<url>
+<loc>/assets/img/pwa-sample.pdf</loc>
+<lastmod>2022-07-31T11:42:26-04:00</lastmod>
 </url>
 <url>
 <loc>/assets/img/unders-sample.pdf</loc>

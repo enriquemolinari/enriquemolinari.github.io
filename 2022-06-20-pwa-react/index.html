@@ -9,14 +9,13 @@
 
   
 
-  <title>404 - Page not found</title>
+  <title>Implementing Progressive Web Apps with React</title>
 
   
   <meta name="author" content="Enrique Molinari">
   
 
-  <meta name="description" content="Whoops, this page doesn't exist.
-  Move along. (404 error)">
+  <meta name="description" content="Here is my third book. Did you know that with PWAs you can create Web Apps that deliver a user experience similar to native apps? Did you know that with the React tooling most of the work to create them is almost done? I will explain how to create PWAs...">
 
   
 
@@ -90,32 +89,32 @@
 
   
   <meta property="og:site_name" content="Copy & Paste is for Word">
-  <meta property="og:title" content="404 - Page not found">
-  <meta property="og:description" content="Whoops, this page doesn't exist.
-  Move along. (404 error)">
+  <meta property="og:title" content="Implementing Progressive Web Apps with React">
+  <meta property="og:description" content="Here is my third book. Did you know that with PWAs you can create Web Apps that deliver a user experience similar to native apps? Did you know that with the React tooling most of the work to create them is almost done? I will explain how to create PWAs...">
 
   
-  <meta property="og:image" content="/assets/img/mi-foto.jpeg">
-  
-
-  
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="/404.html">
-  <link rel="canonical" href="/404.html">
+  <meta property="og:image" content="/assets/img/pwabook-cover.png">
   
 
   
-  <meta name="twitter:card" content="summary">
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Enrique Molinari">
+  <meta property="og:article:published_time" content="2022-06-20T19:00:00-04:00">
+  <meta property="og:url" content="/2022-06-20-pwa-react/">
+  <link rel="canonical" href="/2022-06-20-pwa-react/">
+  
+
+  
+  <meta name="twitter:card" content="summary_large_image">
   
   <meta name="twitter:site" content="@">
   <meta name="twitter:creator" content="@">
 
-  <meta property="twitter:title" content="404 - Page not found">
-  <meta property="twitter:description" content="Whoops, this page doesn't exist.
-  Move along. (404 error)">
+  <meta property="twitter:title" content="Implementing Progressive Web Apps with React">
+  <meta property="twitter:description" content="Here is my third book. Did you know that with PWAs you can create Web Apps that deliver a user experience similar to native apps? Did you know that with the React tooling most of the work to create them is almost done? I will explain how to create PWAs...">
 
   
-  <meta name="twitter:image" content="/assets/img/mi-foto.jpeg">
+  <meta name="twitter:image" content="/assets/img/pwabook-cover.png">
   
 
   
@@ -276,21 +275,152 @@
 
 
 
-  <div class="intro-header"></div>
+  <!-- TODO this file has become a mess, refactor it -->
 
-<div role="main" class=" container-md ">
-  
 
-  <div class="text-center">
-  <h1>Whoops, this page doesn't exist.</h1>
-  <h1>Move along. (404 error)</h1>
-  <br/>
 
-  <img src="/assets/img/404-southpark.jpg" alt="Not found" />
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Implementing Progressive Web Apps with React</h1>
+          
+
+          
+            <span class="post-meta">Posted on June 20, 2022</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <style type="text/css">
+ .center-image
+ {
+   margin: 0 auto;
+   display: block;
+ }
+ img { width: 200px; }
+</style>
+
+<p>Here is my third book.</p>
+
+<p><img src="/assets/img/pwabook-cover.png" alt="Book Cover" title="pwa cover" class="center-image" /></p>
+
+<blockquote>
+  <p>Did you know that with PWAs you can create Web Apps that deliver a user experience similar to native apps? Did you know that with the React tooling most of the work to create them is almost done? I will explain how to create PWAs with the React tooling and describe what the generated code does in order you can safely iterate over it.</p>
+</blockquote>
+
+<p>In this book we are going to implement a Progressive Web App (PWA) using a step-by-step approach. This learning experience starts with an already crafted React application called Task List, created using the create-react-app tool with the cra-template-pwa template, which gives us a good starting point for building a progressive web app.</p>
+
+<p>We will go into the details about how to make the web app installable and after that how to improve the user experience by adding offline support to the web app. To make the learning process smooth I will first add offline support for the read-only use cases of the application. After that, I will show how to provide full offline support by using the IndexedDB database and the Background Sync service. I will also explain how to update progressive web apps. How users get notified that there is a new release of the application waiting to be installed and how that actually happens.</p>
+
+<p>You can buy it following the link: <a href="https://leanpub.com/pwawithreact">Implementing Progressive Web Apps with React</a>. If you are one of my students, it is free for you, just write me an email.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#React">React</a>
+          
+            <a href="/tags#Progressive Web Apps">Progressive Web Apps</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Implementing+Progressive+Web+Apps+with+React&url=%2F2022-06-20-pwa-react%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2F2022-06-20-pwa-react%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2F2022-06-20-pwa-react%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2021-12-25-understanding-react/" data-toggle="tooltip" data-placement="top" title="Understanding React">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+      
+  
+  
+  
+
+  
 
 
   
+
+
+
+    </div>
+  </div>
 </div>
 
 
