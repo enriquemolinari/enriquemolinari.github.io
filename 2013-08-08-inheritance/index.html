@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Use Inheritance Properly</title>
+
+  
+  <meta name="author" content="Enrique Molinari">
+  
+
+  <meta name="description" content="How many times did you ask yourself, in order to avoid duplicated code, if you should use inheritance or composition? Did you ask yourself about the differences between subtype and subclass? Do you always follows the Liskov Substitution Principle? This post will try to help to answer these questions. And...">
+
+  
+
+  
+
+  
+  <link rel="alternate" type="application/rss+xml" title="Copy & Paste is for Word" href="/feed.xml">
+  
+
+  
+
+  
+
+  
+<!-- Google Analytics -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-23512716-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Copy & Paste is for Word">
+  <meta property="og:title" content="Use Inheritance Properly">
+  <meta property="og:description" content="How many times did you ask yourself, in order to avoid duplicated code, if you should use inheritance or composition? Did you ask yourself about the differences between subtype and subclass? Do you always follows the Liskov Substitution Principle? This post will try to help to answer these questions. And...">
+
+  
+  <meta property="og:image" content="/assets/img/mi-foto.jpeg">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Enrique Molinari">
+  <meta property="og:article:published_time" content="2013-08-08T08:00:00-04:00">
+  <meta property="og:url" content="/2013-08-08-inheritance/">
+  <link rel="canonical" href="/2013-08-08-inheritance/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:creator" content="@">
+
+  <meta property="twitter:title" content="Use Inheritance Properly">
+  <meta property="twitter:description" content="How many times did you ask yourself, in order to avoid duplicated code, if you should use inheritance or composition? Did you ask yourself about the differences between subtype and subclass? Do you always follows the Liskov Substitution Principle? This post will try to help to answer these questions. And...">
+
+  
+  <meta name="twitter:image" content="/assets/img/mi-foto.jpeg">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="">Copy & Paste is for Word</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutme">About Me</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+            <span id="nav-search-icon" class="fa fa-search"></span>
+            <span id="nav-search-text">Search</span>
+          </a>
+        </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/mi-foto.jpeg" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var searchjson = '[ \
+       \
+        { \
+          "title"    : "Implementing Progressive Web Apps with React", \
+          "category" : "ReactProgressive Web Apps", \
+          "url"      : "/2022-06-20-pwa-react/", \
+          "date"     : "June 20, 2022" \
+        }, \
+       \
+        { \
+          "title"    : "Understanding React", \
+          "category" : "ReactSPA", \
+          "url"      : "/2021-12-25-understanding-react/", \
+          "date"     : "December 25, 2021" \
+        }, \
+       \
+        { \
+          "title"    : "Coding an Architecture Style", \
+          "category" : "Software ArchitectureDesign", \
+          "url"      : "/2020-06-12-coding-architecture/", \
+          "date"     : "June 12, 2020" \
+        }, \
+       \
+        { \
+          "title"    : "Object Oriented Frameworks: Concepts, White Box and Black Box Examples", \
+          "category" : "Object OrientedFramework", \
+          "url"      : "/2016-06-11-frameworks/", \
+          "date"     : "June 11, 2016" \
+        }, \
+       \
+        { \
+          "title"    : "Lambda Expressions in Java, a Concrete Example", \
+          "category" : "Object OrientedLambda Expressions", \
+          "url"      : "/2015-11-15-lambda/", \
+          "date"     : "November 15, 2015" \
+        }, \
+       \
+        { \
+          "title"    : "Use Inheritance Properly", \
+          "category" : "Object OrientedInheritance", \
+          "url"      : "/2013-08-08-inheritance/", \
+          "date"     : "August  8, 2013" \
+        }, \
+       \
+        { \
+          "title"    : "Please, use the debugguer", \
+          "category" : "debug", \
+          "url"      : "/2012-12-24-use-debugger/", \
+          "date"     : "December 24, 2012" \
+        }, \
+       \
+        { \
+          "title"    : "Software Architecture vs Software Design", \
+          "category" : "", \
+          "url"      : "/2011-07-13-arch-vs-design/", \
+          "date"     : "July 13, 2011" \
+        }, \
+       \
+        { \
+          "title"    : "A Note on the Definition of Legacy Code", \
+          "category" : "", \
+          "url"      : "/2011-06-20-legacy-code/", \
+          "date"     : "June 20, 2011" \
+        }, \
+       \
+        { \
+          "title"    : "What is the role of a Software Architect ?", \
+          "category" : "", \
+          "url"      : "/2011-05-22-architect-role/", \
+          "date"     : "May 22, 2011" \
+        }, \
+       \
+       \
+        { \
+          "title"    : "What is this About?", \
+          "category" : "page", \
+          "url"      : "/about/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "What is this About?", \
+          "category" : "page", \
+          "url"      : "/aboutme/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "My website", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "", \
+          "category" : "page", \
+          "url"      : "/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "Tag Index", \
+          "category" : "page", \
+          "url"      : "/tags/", \
+          "date"     : "January 1, 1970" \
+        }, \
+       \
+        { \
+          "title"    : "My website", \
+          "category" : "page", \
+          "url"      : "/page2/", \
+          "date"     : "January 1, 1970" \
+        } \
+       \
+    ]';
+    searchjson = JSON.parse(searchjson);
+
+    var sjs = SimpleJekyllSearch({
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: searchjson
+    });
+  </script>
+</div>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Use Inheritance Properly</h1>
+          
+
+          
+            <span class="post-meta">Posted on August 8, 2013</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <p>How many times did you ask yourself, in order to avoid duplicated code, if you should use inheritance or composition? Did you ask yourself about the differences between subtype and subclass? Do you always follows the Liskov Substitution Principle? This post will try to help to answer these questions. And try to give you more clarity to how and when subclassing is appropriate to be used.</p>
+
+<p>The content of this post is a combination of paragraphs extracted from two great books: <a href="http://web.engr.oregonstate.edu/~budd/Books/oopintro3e/">An Introduction to Object Oriented Programming</a>, by Timothy Budd and <a href="http://books.google.com.ar/books?id=o7RQAAAAMAAJ&amp;redir_esc=y">Program Development in Java</a>, by Barbara Liskov and John Guttag.</p>
+
+<p>I would say that subclassing is used correctly if the subclass is also a <strong>subtype</strong> of the parent class. Let me try to explain this sentence, starting with what <strong>type</strong> and <strong>subtype</strong> means.</p>
+
+<h2 id="subclass-and-subtype">Subclass and Subtype</h2>
+
+<p>When we say that the number 5 is of <strong>type</strong> integer, we are stating that 5 belongs to a set of possible <strong><em>values</em></strong> (as an example, see the possible values for the <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html">Java primitive types</a>). We are also stating that there is a valid set of <strong><em>methods </em></strong>I can perform on the value like addition and subtraction. And finally we are stating that there are a set of <strong><em>properties</em></strong> that are always satisfied, for example, if I <em>add</em> the values 3 and 5, I will get 8 as a result.</p>
+
+<p>To give another example, think about the abstract data types, <em>Set of integers</em> and <em>List of integers</em>, the <strong><em>values</em></strong> they can hold are restricted to integers. They both support a set of <strong><em>methods</em></strong>, like <em>add(newValue)</em> and <em>size()</em>. And they both have different <strong><em>properties</em></strong> (class invariant), <em>Sets</em> does not allow duplicates while *List* does allow duplicates (of course there are other properties that they both satisfy).</p>
+
+<p><strong>Subtype </strong>is also a <strong>type</strong>, which has a relation to another <strong>type</strong>, called <strong>parent type</strong> (or <strong>supertype</strong>). The <strong>subtype</strong> must satisfy the features (<strong><em>values</em></strong>, <strong><em>methods</em></strong> and <strong><em>properties</em></strong>) of the <strong>parent type</strong>. The relation means that in any context where the supertype is expected, it can be substitutable by a subtype, without affecting the <strong>behaviour</strong> of the execution. Let’s go to see some code to exemplify what I’m saying. Suppose I write a <em>List of integers (in some sort of pseudo language)</em>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">List</span> <span class="p">{</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">new</span> <span class="no">Array</span><span class="p">();</span>
+
+  <span class="no">Integer</span> <span class="n">size</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="nf">length</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">add</span><span class="p">(</span><span class="no">Integer</span> <span class="n">anInteger</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">.</span><span class="nf">length</span><span class="p">]</span> <span class="o">=</span> <span class="n">anInteger</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Then, I write the <em>Set of integers</em> as a subclass of the <em>List of integers</em>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Set</span><span class="p">,</span> <span class="n">inheriting</span> <span class="ss">from: </span><span class="no">List</span> <span class="p">{</span>
+  <span class="n">add</span><span class="p">(</span><span class="no">Integer</span> <span class="n">anInteger</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="nf">notContains</span><span class="p">(</span><span class="n">anInteger</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">super</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">anInteger</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Our <em>Set of integers </em>class is a subclass of <em>List of Integers</em>, but is <strong>not a</strong> <strong>subtype</strong>, due to it is not satisfying all the features of the <em>List</em> class. The <strong>values</strong>, and the signature of the <strong>methods</strong> are satisfied but the <strong>properties</strong> are not. The behaviour of the <em>add(Integer)</em> method has been changed, not preserving the properties of the parent type.</p>
+
+<h3 id="how-bad-is-this">How bad is this?</h3>
+
+<p>Well, this allows you to use <em>Set</em>s where <em>List</em>s are expected. For example, a method in any other class might operate on a <em>List</em>, receiving it as a parameter, but at runtime you might receive a <em>Set</em>, which in that case it will change the <strong>behaviour</strong> that you are expecting, which is the <strong>behavior</strong> of the <strong>parent type</strong>. That is <em>not good</em>. <strong>You have to think from the perspective of the client of your abstractions</strong> (a class and subclass in this case). This change in the behaviour will be a big surprise for your clients.</p>
+
+<p>The following test case will pass if we use a <em>List</em>, but it will fail if we use a *Set *which was defined as a subclass of <em>List</em>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">test_subtype_relation</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">List</span><span class="o">();</span> <span class="err">#</span> <span class="n">using</span> <span class="nf">Set</span><span class="o">()</span> <span class="n">will</span> <span class="k">break</span> <span class="k">this</span> <span class="n">test</span><span class="o">,</span> <span class="n">not</span> <span class="n">good</span><span class="o">.</span>
+  <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+  <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+  <span class="n">assertEquals</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The tests you have for your parent classes should still pass if you use instead any of their subclasses.</p>
+
+<p>The example presented above is a classic use of inheritance <strong>only for code reuse</strong>, the <em>size()</em> method fits perfect with my <em>Set of integers</em>. In these cases, composition is your choice.</p>
+
+<p>I hope this is not a surprise for you, but here is another consequence of this bad use of inheritance: we are violating the <a href="http://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle</a> which has been made popular by the <a href="http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID principles</a>. Remember, if you are subclassing but violating the subtyping relation, you are not following the Liskov Substitution Principle.</p>
+
+<h2 id="is-overriding-always-bad">Is Overriding Always Bad?</h2>
+
+<p>From the example above, you might have gotten the feeling that overriding is always a bad choice if you want your subclass also be a subtype. That is not the case. Think about, for example, what would happen for the <em>Object</em> class in languages like Smalltalk or Java. They both implement a default behaviour for the <em>equals(anObject)</em> (in the case of Java) method, and the <em>=anObject</em> (in the case of smalltalk) method. Your subclasses, most of the time, needs to override this behaviour, and we still need to do it in the proper way.</p>
+
+<p>So, to do it in the right way, we need to reason about the specification, the <strong>preconditions</strong> and the <strong>postconditions</strong>, of the method that we want to override. See the specification of the method <em>add(anInteger)</em> below from our previous example:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nl">pre:</span>  <span class="o">-</span>
+<span class="err">#</span> <span class="nl">post:</span> <span class="n">adds</span> <span class="n">anInteger</span> <span class="n">to</span> <span class="k">this</span>
+<span class="nc">List</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">anInteger</span><span class="o">);</span>
+<span class="err">#</span> <span class="nl">pre:</span>  <span class="o">-</span>
+<span class="err">#</span> <span class="nl">post:</span> <span class="k">if</span> <span class="n">anInteger</span> <span class="n">is</span> <span class="n">not</span> <span class="n">in</span> <span class="k">this</span><span class="o">,</span> <span class="n">then</span> <span class="n">added</span> <span class="n">it</span> <span class="n">to</span> <span class="k">this</span>
+<span class="nc">Set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">anInteger</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>When you override a method, the precondition and postcondition of your subclass can differ from those on the parent class, but only taking into account the following. The method in the subclass can:</p>
+
+<ul>
+  <li><strong>weaken</strong> the precondition and, <strong>strengthen</strong> the postcondition.</li>
+</ul>
+
+<p>Both conditions must be satisfied. Weakening the precondition means that the subclass method requires less (or the same) from the client (the caller) than what the supertype method does. This ensures that the client, written in terms of the supertype precondition, will continue be able to execute the method, if a subclass is used instead. Strengthening the postcondition means that when the method returns, the postcondition of the parent class is satisfied and also additional conditions might be added. In the case of our previous example, the precondition on the <em>add(anInteger)</em> is the same for both the subclass and the parent class, but the postcondition has been modified by the subclass method, not preserving the one on the parent class.</p>
+
+<p>The next example, presents a <em>CounterPairList</em> class, which is a subclass of <em>List</em>, and also a subtype. See how the postcondition of the overriden <em>add(anInteger)</em> method preserves the parent type postcondition while also add an additional condition.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">CounterPairList</span><span class="o">,</span> <span class="n">inheriting</span> <span class="nl">from:</span> <span class="nc">List</span> <span class="o">{</span>
+  <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+  <span class="err">#</span> <span class="nl">pre:</span>  <span class="o">-</span>
+  <span class="err">#</span> <span class="nl">post:</span> <span class="n">adds</span> <span class="n">anInteger</span> <span class="n">to</span> <span class="k">this</span><span class="o">,</span> <span class="n">verify</span> <span class="k">if</span> <span class="n">a</span> <span class="n">pair</span> <span class="n">number</span> <span class="n">was</span> <span class="n">added</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">track</span>
+  <span class="nf">add</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">anInteger</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">anInteger</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">anInteger</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">counter</span><span class="o">++;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="err">#</span> <span class="nl">pre:</span>  <span class="o">-</span>
+  <span class="err">#</span> <span class="nl">post:</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">pair</span> <span class="n">intergers</span> <span class="n">in</span> <span class="n">the</span> <span class="nc">List</span>
+  <span class="nc">Integer</span> <span class="nf">sizeOfPairNumbers</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">counter</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="ways-of-inheritance">Ways of Inheritance</h2>
+
+<p>There are several ways in which inheritance can be used, here is a list of some of them which I have used and I have seen other using them too:</p>
+
+<ul>
+  <li>For code reuse: Like we did in our first example, creating a <em>Set of Integers</em>, inheriting from <em>List of Integers</em>. Of course, avoid the duplication of code is a desirable thing, but there are other ways to do it, like composition. This is not good if you cannot preserve the features of the parent class.</li>
+  <li>For specialization: Like we did for our <em>CounterPairList</em> example, occurs when the subclass is a specialized form of the parent class, preserving the features of the parent class. Other typical example is when we have <em>Cow</em> as a specialized form of <em>Mammal</em>. This is considered a good way of inheritance as subclasses are subtypes.</li>
+  <li>For specification: This is where the subclasses implements behavior specified in the parent. Like the Java <em>interface</em> syntactical construction (or C++ pure virtual functions) or the <em>abstract</em> syntactical construction where some behaviour is implemented in the parent and there are some other bits deferred to the subclasses. This is considered also a good way of inheritance, considering that the subclasses will be also subtypes. I’m making this last comment as you can always define, for instance, the specification (in a Java <em>interface</em>) of the <em>Stack#push</em> and <em>Stack#pop</em> methods, and then implement them like they were a simple <em>Set</em>.</li>
+  <li>For limitation: This is where the behaviour of the subclass is smaller than the behaviour of the parent class. I have seen this way several times. When some methods of a class fits for you, so, you inherit from it. Other methods that you are inheriting should not be used, so you override those methods in order to inform the client that those are not available (throwing an exception with a message: “Not available for instances of this subclass…”). Don’t do this.</li>
+  <li>For naming a thing: Sometimes you just creates a subclass as a way to name or model something you see on your real world, but that subclass does not have behaviour at all. Just a constructor. Don’t do this. A class without behaviour is not really an object. You can find a great example of this on the book Test-Driven Development By Example, from Kent Beck. There you will see how and why the classes <em>Dollar</em> and <em>Franc</em> which are subclasses of <em>Money</em> end up disappearing.</li>
+</ul>
+
+<h2 id="few-additional-comments-on-inheritance">Few Additional Comments on Inheritance</h2>
+
+<ul>
+  <li>Inheritance is highly (and improperly) used for code reuse instead of composition in languages like Java because you have to write much less code. Composition requires you to write more code, for inject the collaborator in the constructor, and delegate on those methods you want to reuse. However, this is a lack of the language. For instance, C++ provides a syntactical construction called <em>private inheritance</em> where you can inherit all the facilities of the parent class, but those are not available for clients nor the subclass can be substituted when the parent class is expected.</li>
+  <li>Even when your subclass is a subtype of the parent class, the parent class might change their pre/postcondition in a subsequent release, which might break the subtype relation. Or the parent class might get an additional method and accidentally there is a method in the subclass with the same signature, then you end up overriding the method without knowing it. Subclasses and their parent classes need to evolve together.</li>
+  <li>Inheritance is a “white box” code reuse style, as you need to know how some methods are implemented to safely create subclasses. The implementation of <em>methodA</em> might call <em>methodB</em> and <em>methodC</em> from the same class, to fulfill an action. In the subclass, you might override <em>methodB</em> and get unexpected results when calling <em>methodA</em>. Inheritance breaks encapsulation.</li>
+</ul>
+
+<p>Use inheritance properly, when subclasses are also subtypes. If you cannot guarantee that, use composition. And even when using inheritance properly keep an eye on how the inheritance hierarchy evolves to avoid surprises.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#Object Oriented">Object Oriented</a>
+          
+            <a href="/tags#Inheritance">Inheritance</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Use+Inheritance+Properly&url=%2F2013-08-08-inheritance%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2F2013-08-08-inheritance%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2F2013-08-08-inheritance%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2012-12-24-use-debugger/" data-toggle="tooltip" data-placement="top" title="Please, use the debugguer">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="page-item next">
+          <a class="page-link" href="/2015-11-15-lambda/" data-toggle="tooltip" data-placement="top" title="Lambda Expressions in Java, a Concrete Example">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+  
+  
+  
+
+  
+
+
+  
+
+
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="mailto:enrique.molinari@gmail.com" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/enriquemolinari" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://linkedin.com/in/enrique-molinari-254a3764" title="LinkedIn">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">LinkedIn</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://stackoverflow.com/users/842533/enrique-molinari" title="StackOverflow">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">StackOverflow</span>
+   </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Enrique Molinari
+        &nbsp;&bull;&nbsp;
+      
+      2022
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="">copypasteisforword.com</a>
+        </span>
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>

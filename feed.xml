@@ -56,6 +56,39 @@
       </item>
     
       <item>
+        <title>Lambda Expressions in Java, a Concrete Example</title>
+        <description>
+          
+          Maybe you have read several posts on the web on how Lambda Expressions are used. Most of the ones I have read uses examples for filtering collections with the new Stream API of Java 8. Those examples are good but they are more focused on showing a fancy way of...
+        </description>
+        <pubDate>Sun, 15 Nov 2015 08:00:00 -0500</pubDate>
+        <link>/2015-11-15-lambda/</link>
+        <guid isPermaLink="true">/2015-11-15-lambda/</guid>
+      </item>
+    
+      <item>
+        <title>Use Inheritance Properly</title>
+        <description>
+          
+          How many times did you ask yourself, in order to avoid duplicated code, if you should use inheritance or composition? Did you ask yourself about the differences between subtype and subclass? Do you always follows the Liskov Substitution Principle? This post will try to help to answer these questions. And...
+        </description>
+        <pubDate>Thu, 08 Aug 2013 08:00:00 -0400</pubDate>
+        <link>/2013-08-08-inheritance/</link>
+        <guid isPermaLink="true">/2013-08-08-inheritance/</guid>
+      </item>
+    
+      <item>
+        <title>Please, use the debugguer</title>
+        <description>
+          
+          I have found, during my experience (which is far from large one) working with other developers, that few of them use the debugger as the first tool for troubleshooting and learning or understand legacy code. If you are familiar with Java/Eclipse, you will know that debugging an application is pretty...
+        </description>
+        <pubDate>Mon, 24 Dec 2012 06:00:00 -0500</pubDate>
+        <link>/2012-12-24-use-debugger/</link>
+        <guid isPermaLink="true">/2012-12-24-use-debugger/</guid>
+      </item>
+    
+      <item>
         <title>Software Architecture vs Software Design</title>
         <description>
           
