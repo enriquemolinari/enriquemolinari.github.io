@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>JQueue: A Library to Implement the Outbox Pattern</title>
+        <description>
+          
+          In microservices or any other event-based architecture, in some use cases, a service might require us to make changes to their own local database and also publish an event. That event is then consumed by other services. To have a consistent software system, it is mandatory that these two actions...
+        </description>
+        <pubDate>Sun, 23 Oct 2022 14:00:00 -0400</pubDate>
+        <link>/2022-10-23-jqueue/</link>
+        <guid isPermaLink="true">/2022-10-23-jqueue/</guid>
+      </item>
+    
+      <item>
         <title>Implementing Progressive Web Apps with React</title>
         <description>
           

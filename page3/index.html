@@ -9,13 +9,13 @@
 
   
 
-  <title>Please, use the debugguer</title>
+  <title>My website</title>
 
   
   <meta name="author" content="Enrique Molinari">
   
 
-  <meta name="description" content="I have found, during my experience (which is far from large one) working with other developers, that few of them use the debugger as the first tool for troubleshooting and learning or understand legacy code. If you are familiar with Java/Eclipse, you will know that debugging an application is pretty...">
+  <meta name="description" content="This is where I will tell my friends way too much about me">
 
   
 
@@ -89,19 +89,17 @@
 
   
   <meta property="og:site_name" content="Copy & Paste is for Word">
-  <meta property="og:title" content="Please, use the debugguer">
-  <meta property="og:description" content="I have found, during my experience (which is far from large one) working with other developers, that few of them use the debugger as the first tool for troubleshooting and learning or understand legacy code. If you are familiar with Java/Eclipse, you will know that debugging an application is pretty...">
+  <meta property="og:title" content="My website">
+  <meta property="og:description" content="This is where I will tell my friends way too much about me">
 
   
   <meta property="og:image" content="/assets/img/mi-foto.jpeg">
   
 
   
-  <meta property="og:type" content="article">
-  <meta property="og:article:author" content="Enrique Molinari">
-  <meta property="og:article:published_time" content="2012-12-24T06:00:00-05:00">
-  <meta property="og:url" content="/2012-12-24-use-debugger/">
-  <link rel="canonical" href="/2012-12-24-use-debugger/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/page3/">
+  <link rel="canonical" href="/page3/">
   
 
   
@@ -110,8 +108,8 @@
   <meta name="twitter:site" content="@">
   <meta name="twitter:creator" content="@">
 
-  <meta property="twitter:title" content="Please, use the debugguer">
-  <meta property="twitter:description" content="I have found, during my experience (which is far from large one) working with other developers, that few of them use the debugger as the first tool for troubleshooting and learning or understand legacy code. If you are familiar with Java/Eclipse, you will know that debugging an application is pretty...">
+  <meta property="twitter:title" content="My website">
+  <meta property="twitter:description" content="This is where I will tell my friends way too much about me">
 
   
   <meta name="twitter:image" content="/assets/img/mi-foto.jpeg">
@@ -331,14 +329,15 @@
   <div class="container-md">
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-        <div class="post-heading">
-          <h1>Please, use the debugguer</h1>
+        <div class="page-heading">
+          <h1>My website</h1>
+          
+            
+              <hr class="small">
+              <span class="page-subheading">This is where I will tell my friends way too much about me</span>
+            
           
 
-          
-            <span class="post-meta">Posted on December 24, 2012</span>
-            
-            
           
         </div>
       </div>
@@ -351,118 +350,60 @@
 
 
 
-<div class=" container-md ">
+<div class=" container-md " role="main">
   <div class="row">
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
-
       
 
-      
+       
 
-      <article role="main" class="blog-post">
-        <p>I have found, during my experience (which is far from large one) working with other developers, that few of them use the debugger as the first tool for troubleshooting and learning or understand legacy code. If you are familiar with Java/Eclipse, you will know that debugging an application is pretty simple. Indeed, Java allows you to debug remote JVMs. Yes, you are able to debug a JVM deployed in one continent from an Eclipse running on a workstation on another continent. Very nice.</p>
-
-<p>Why developers don’t use a debugger? Maybe because the experience of most of them came from web scripting languages like the old ASP (MS Active Server Pages) or PHP, which does not provide a way to debug (or is pretty complex to do it). In addition, a couple of years ago, you did not have a tool for debugging Javascript code.</p>
-
-<p>Mostly during my assignments in my undergraduate courses, I used Pascal, C and C++. And a debugger in those languages becomes pretty necessary. Especially if you are trying to find out an issue that may be caused by a dangling reference. So, I have learned those programming languages and learned how to troubleshoot applications using a debugger. On my working experience, I jumped into Java/Eclipse. Java and their Exception mechanisms generates very informative errors making the use of the debugger less necessary than in C (in addition, and among other things, pointers in Java are not managed by the developer which is far less error prone). However, the debugger is still the best tool for troubleshooting and for understanding legacy code.</p>
-
-<p>I have received questions from other developers like: “…when I click on the button X, I get an error page with the suggestion to call the customer service”. My answer is always the same… “Please, use the debugger, and let me know what you find”. In most of the cases, they come after 10 minutes saying something like: “… forget it, it was something wrong I did…”.</p>
-
-<p>Other developers try to understand what is going on looking at the code and trying to follow the flow of the program in their head. Which of course is not easy, and very error prone. Don’t waste your time, please, use the debugger.</p>
-
-<p>If you find an issue, follow these steps:</p>
-
-<ol>
-  <li>Start the debugger and discover what is going on.</li>
-  <li>Write a unit test that reproduces the issue. You will get the red bar.</li>
-  <li>Fix the issue.</li>
-  <li>Run the unit test you wrote in the step 2, and see if you get the green bar.</li>
-  <li>If you get the green bar, move on.</li>
-</ol>
-
-<p>If you need to deal with legacy code, the debugger is your tool to understand and get the knowledge that later will let you apply light/safe refactors to make the code testable.</p>
-
-<p>Today, you should not choose a programming language to develop an application (even small ones! Unless you just need the Hello World!) which does not provide an IDE for debugging. In addition, your IDE should allow you to run/execute unit tests (and debug them if necessary)</p>
-
-      </article>
-
-      
-        <div class="blog-tags">
-          <span>Tags:</span>
-          
-            <a href="/tags#debug">debug</a>
-          
-        </div>
-      
-
-      
-
-      
-        <!-- Check if any share-links are active -->
-
-
-
-
-<section id = "social-share-section">
-  <span class="sr-only">Share: </span>
-
+<div class="posts-list">
   
-    <a href="https://twitter.com/intent/tweet?text=Please%2C+use+the+debugguer&url=%2F2012-12-24-use-debugger%2F"
-      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
-      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
-      <span class="sr-only">Twitter</span>
+  <article class="post-preview">  
+
+    <a href="/2011-05-22-architect-role/">
+      <h2 class="post-title">What is the role of a Software Architect ?</h2>
+
+      
     </a>
-  
 
-  
-    <a href="https://www.facebook.com/sharer/sharer.php?u=%2F2012-12-24-use-debugger%2F"
-      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
-      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
-      <span class="sr-only">Facebook</span>
-    </a>
-  
+    <p class="post-meta">
+       Posted
+      on May 22, 2011
+    </p>
 
-  
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2F2012-12-24-use-debugger%2F"
-      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
-      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
-      <span class="sr-only">LinkedIn</span>
-    </a>
-  
+      
 
+    <div class="post-entry">
+       If you are an Architect you may have discovered that you are not going to be asked to spend all your time on improving the design of an existing software product, nor to write code for an specific project. As soon as you become an Architect, your meeting’s calendar will...  
+      <a href="/2011-05-22-architect-role/" class="post-read-more"
+        >[Read&nbsp;More]</a
+      >
+      
+    </div>
+      
+  </article>
   
+</div>
 
+
+<ul class="pagination main-pager">
   
-
-</section>
+  <li class="page-item previous">
+    <a
+      class="page-link"
+      href="/page2"
+      >&larr; Newer Posts</a
+    >
+  </li>
+   
+</ul>
 
 
 
       
 
-      <ul class="pagination blog-pager">
-        
-        <li class="page-item previous">
-          <a class="page-link" href="/2011-07-13-arch-vs-design/" data-toggle="tooltip" data-placement="top" title="Software Architecture vs Software Design">&larr; Previous Post</a>
-        </li>
-        
-        
-        <li class="page-item next">
-          <a class="page-link" href="/2013-08-08-inheritance/" data-toggle="tooltip" data-placement="top" title="Use Inheritance Properly">Next Post &rarr;</a>
-        </li>
-        
-      </ul>
       
-  
-  
-  
-
-  
-
-
-  
-
-
 
     </div>
   </div>
